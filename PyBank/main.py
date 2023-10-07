@@ -48,13 +48,24 @@ with open(budget_data) as csvfile:
 
     average_change = (profits_losses[-1] - profits_losses[0])/(len(profits_losses) - 1)
     
-    print(len(months))
-    print(net_total)
-    print(average_change)
-    print(changes[2])
-    print(greatest_increase["date"])
-    print(greatest_increase["value"])
-    print(greatest_decrease["date"])
-    print(greatest_decrease["value"])
+    
+output_path = os.path.join("c:\\Users\\kklos\\OneDrive\\Desktop\\python-challenge\\py_analyses", "pybank_analyses.csv")
+# Open the file using "write" mode. Specify the variable to hold the contents
+with open(output_path, 'w') as csvfile:
+
+    # Initialize csv.writer
+    csvwriter = csv.writer(csvfile)
+
+    # Write the first row (column headers)
+    
+    csvwriter.writerow(["Financial Analysis"])
+    csvwriter.writerow(["----------------------------"])
+    csvwriter.writerow([f"Total Months: {len(months)}"])
+    csvwriter.writerow([f"Total: ${net_total}"])
+    csvwriter.writerow([f"Average Change: ${round(average_change, 2)}"])
+    csvwriter.writerow([f"Greatest Increase in Profits: {greatest_increase['date']} (${greatest_increase['value']})"])
+    csvwriter.writerow([f"Greatest Decrease in Profits: {greatest_decrease['date']} (${greatest_decrease['value']})"])
+
+
     
 
