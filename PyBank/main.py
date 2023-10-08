@@ -55,8 +55,6 @@ with open(output_path, 'w') as csvfile:
 
     # Initialize csv.writer
     csvwriter = csv.writer(csvfile)
-
-    # Write the first row (column headers)
     
     csvwriter.writerow(["Financial Analysis"])
     csvwriter.writerow(["----------------------------"])
